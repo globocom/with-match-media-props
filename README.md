@@ -1,12 +1,8 @@
-# with-match-media-props
+# with-match-media-props  [![NPM](https://img.shields.io/npm/v/@globocom/with-match-media-props.svg)](https://www.npmjs.com/package/@globocom/with-match-media-props) [![CircleCI](https://circleci.com/gh/globocom/with-match-media-props/tree/master.svg?style=shield)](https://circleci.com/gh/globocom/with-match-media-props/tree/master) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> CSS Media Queries detection HOC for React
-
-[![NPM](https://img.shields.io/npm/v/@globocom/with-match-media-props.svg)](https://www.npmjs.com/package/@globocom/with-match-media-props) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
-This is a HOC desgined to help you define props according to media queries breakpoints.
-
-Just as CSS media queries, you can combine and/or override props with multi-matching media queries.
+> This is a HOC desgined to help you define props according to media queries breakpoints.
+>
+> Just as CSS media queries, you can combine and/or override props with multi-matching media queries.
 
 ## Install
 
