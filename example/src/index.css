@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.with-media-query-props__example {
+  margin: 0 5vw;
+}
+
+.with-media-query-props__example h1 {
+  margin-bottom: 50px;
+}
+
+.with-media-query-props__example span {
+  display: block;
+  font-size: 11px;
+}
+
+.with-media-query-props__example pre {
+  display: inline-block;
+  background: #d3d3d3;
+  padding: 20px 30px;
+  margin-bottom: 0;
+}
