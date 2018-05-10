@@ -1,6 +1,6 @@
 {
   "name": "@globocom/with-match-media-props",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "CSS Media Queries props injection HOC for React",
   "author": "celiolatorraca",
   "license": "MIT",
