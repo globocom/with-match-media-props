@@ -9,11 +9,16 @@ import _debounce from 'lodash.debounce'
 const withMatchMediaProps = (mediaQueriesTests = {}) =>
   (BaseComponent) => (
     class extends Component {
+      state = {
+        mounted: false
+      }
+
       handleResize = _debounce(() => {
         this.forceUpdate()
       }, 50)
 
       componentDidMount() {
+        this.setState({ mounted: true })
         window && window.addEventListener('resize', this.handleResize)
       }
 
@@ -25,7 +30,7 @@ const withMatchMediaProps = (mediaQueriesTests = {}) =>
         return Object
           .entries(mediaQueriesTests)
           .reduce((props, [mediaQuery, mapProps]) => (
-            typeof window !== 'undefined' && window.matchMedia(mediaQuery).matches
+            this.state.mounted && window.matchMedia && window.matchMedia(mediaQuery).matches
               ? { ...props, ...mapProps }
               : props
           ), {})
