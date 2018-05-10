@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import _debounce from 'lodash.debounce'
 
-const withMatchMediaProps = (mediaQueriesTests = {}) =>
+const withMatchMediaProps = (matchMediaMapper = {}) =>
   (BaseComponent) => (
     class extends Component {
       state = {
@@ -27,8 +27,12 @@ const withMatchMediaProps = (mediaQueriesTests = {}) =>
       }
 
       getMediaQueriesProps() {
+        const mediaQueries = typeof matchMediaMapper === 'function'
+          ? matchMediaMapper(this.props)
+          : matchMediaMapper
+
         return Object
-          .entries(mediaQueriesTests)
+          .entries(mediaQueries)
           .reduce((props, [mediaQuery, mapProps]) => (
             this.state.mounted && window.matchMedia && window.matchMedia(mediaQuery).matches
               ? { ...props, ...mapProps }
@@ -43,7 +47,10 @@ const withMatchMediaProps = (mediaQueriesTests = {}) =>
   )
 
 withMatchMediaProps.propTypes = {
-  mediaQueriesTests: PropTypes.object
+  matchMediaMapper: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func
+  ])
 }
 
 export default withMatchMediaProps

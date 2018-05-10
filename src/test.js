@@ -38,6 +38,34 @@ describe('withMatchMediaProps', () => {
   })
 
   describe('when mounted', () => {
+    describe('about HOC parameter', () => {
+      it('should be a static object', () => {
+        mockMatchMedia(['min-width: 1024px'])
+
+        const component = renderComponent({
+          matchMedias: {
+            'min-width: 1024px': { isDesktop: true }
+          },
+          props: { test: 'prop' }
+        })
+
+        expect(component.find(Component).props()).toEqual({
+          isDesktop: true,
+          test: 'prop'
+        })
+      })
+
+      it('should be a function that receives the component props', () => {
+        renderComponent({
+          matchMedias: (props) => {
+            expect(props).toEqual({ test: 'prop' })
+            return {}
+          },
+          props: { test: 'prop' }
+        })
+      })
+    })
+
     it('inject props matched by media query', () => {
       mockMatchMedia(['min-width: 1024px'])
 

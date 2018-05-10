@@ -12,6 +12,16 @@ npm install --save @globocom/with-match-media-props
 
 ## Usage
 
+```js
+withMatchMediaProps(
+  matchMediaMapper: (ownerProps: Object) => Object | Object
+): HigherOrderComponent
+```
+
+This HOC accepts a static object mapping `media-queries` to props, or a function that receives the component props and return the mapped `media-queries`.
+
+Ex:
+
 ```jsx
 import React, { Component } from 'react'
 
